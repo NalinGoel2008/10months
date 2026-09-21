@@ -1,0 +1,284 @@
+@font-face {
+    font-family: VCR;
+    src: url("assets/VCR_OSD_MONO.ttf");
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow: hidden;
+    font-family: VCR;
+}
+
+.background {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+.bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.popup {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 850px;
+    height: 520px;
+}
+
+.popup-image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.popup-content {
+    position: absolute;
+    inset: 0;
+}
+
+
+/* =========================
+   INTRO SCREEN
+   ========================= */
+
+.introScreen {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.introCharacters {
+    position: absolute;
+    left: 30px;
+    bottom: 20px;
+    width: 300px;
+    height: 300px;
+}
+
+.introAmu {
+    position: absolute;
+    left: 50px;
+    bottom: 0;
+    height: 320px;
+    image-rendering: pixelated;
+}
+
+.introNalin {
+    position: absolute;
+    left: 190px;
+    bottom: 0;
+    height: 340px;
+    image-rendering: pixelated;
+}
+
+.introMiddle {
+    width: 390px;
+    margin-left: 250px;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 35px;
+}
+
+.introText {
+    width: 360px;
+    transform: translateY(90px);
+    text-align: center;
+    font-size: 42px;
+    line-height: 1.4;
+    font-weight: bold;
+}
+
+.startButton {
+    width: 310px;
+    margin-left: 50px;
+    margin-bottom: -100px;
+    height: auto;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    padding: 0;
+}
+
+.startButton img {
+    width: 310px;
+    display: block;
+    image-rendering: pixelated;
+}
+
+.startButton:hover img {
+    transform: scale(1.05);
+}
+
+.startButton:active img {
+    transform: scale(0.95);
+}
+
+
+/* =========================
+   MONTH SCREENS
+   ========================= */
+
+.monthScreen {
+    position: absolute;
+    inset: 0;
+}
+
+
+/*
+    These are now only fallback values.
+
+    The actual month-specific values
+    come from script.js.
+*/
+
+.monthMedia {
+    position: absolute;
+    object-fit: cover;
+    image-rendering: auto;
+}
+
+video.monthMedia {
+    background: black;
+}
+
+.monthText {
+    position: absolute;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 15px 10px;
+
+    pointer-events: none;
+}
+
+.navigation {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    z-index: 10;
+}
+
+.navButton {
+    width: var(--nav-button-width, 220px);
+    height: auto;
+    border: none;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+}
+
+.navButton img {
+    width: 100%;
+    display: block;
+    image-rendering: pixelated;
+}
+
+.navButton:hover img {
+    transform: scale(1.05);
+}
+
+.navButton:active img {
+    transform: scale(0.95);
+}
+
+.backButton {
+    transform: scaleX(-1);
+}
+
+
+/* =========================
+   FINAL SCREEN
+   ========================= */
+
+.yayScreen {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.characters {
+    position: relative;
+    width: 100%;
+    height: 250px;
+}
+
+.yayAmu {
+    position: absolute;
+    left: 8%;
+    bottom: -135px;
+    height: 315px;
+    image-rendering: pixelated;
+}
+
+.yayNalin {
+    position: absolute;
+    right: 8%;
+    bottom: -135px;
+    height: 315px;
+    image-rendering: pixelated;
+}
+
+.characters img {
+    height: 350px;
+    image-rendering: pixelated;
+}
+
+.yayText {
+    text-align: center;
+    margin-top: -200px;
+    font-size: 64px;
+}
+
+.yaySub {
+    text-align: center;
+    font-size: 26px;
+    line-height: 1.5;
+}
+
+
+/* =========================
+   SMALL SCREEN SAFETY
+   ========================= */
+
+@media (max-width: 900px) {
+
+    .popup {
+        transform:
+            translate(-50%, -50%)
+            scale(0.8);
+
+        transform-origin: center;
+    }
+}
+
+@media (max-width: 700px) {
+
+    .popup {
+        transform:
+            translate(-50%, -50%)
+            scale(0.62);
+    }
+}
